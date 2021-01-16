@@ -4,88 +4,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-
-<body>
-
+    <title>Javascript Task</title>
 
     <style>
+        /* CSS for Buttons */
+        
+        .btn {
+            background-color: rgb(0, 110, 255);
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 5px 5px 5px;
+            border: 1px solid rgb(0, 110, 255);
+            border-radius: 2px;
+        }
+        
+        .btn:hover {
+            background-color: rgb(124, 6, 6);
+            color: #fff;
+            border: 1px solid rgb(124, 6, 6);
+        }
         /* CSS for child item */
         
         .child {
             color: white;
-            background-color: green;
+            background-color: rgb(0, 110, 255);
+        }
+        
+        h2,
+        h3 {
+            color: rgb(0, 110, 255);
         }
     </style>
-    </head>
 
-    <body>
-        <h1 style="text-align:center; color:green;">
-            GeeksForGeeks
-        </h1>
 
-        <!-- Form to add item -->
-        <form action="#" style="text-align:center;">
+</head>
 
-            <!-- Type of Element -->
-            <label for="type">
-        Add Element Type
-    </label>
+<body>
+    <!--Question No 1-->
+    <h1 style="text-align:center; color:rgb(0, 110, 255);">
+        Add New Elements</h1>
 
-            <input type="text" id="type" placeholder="Like: div, h1, li...." value="li" />
-            <br /><br />
+    <!-- Form to add item -->
+    <form action="#" style="text-align:center;">
+        <!-- Type of Element -->
+        <label for="type">Add Element Type</label>
+        <input type="text" id="type" placeholder="Like: div, h1, li...." value="li" />
+        <br /><br />
+        <!-- Text/Value for the element --->
+        <label for="value">Add Element Value</label>
 
-            <!-- Text/Value for the element --->
-            <label for="value">
-        Add Element Value
-    </label>
+        <input type="text" id="value" placeholder="Like: Hello Mercy" value="CHILD 2" />
+        <br /><br />
+        <!-- Submit the Form -->
+        <button type="button" class="btn" onClick="addItem()">
+            Add Element
+        </button>
+    </form>
 
-            <input type="text" id="value" placeholder="Like: Hello GeeksForGeeks" value="CHILD 2" />
-            <br /><br />
+    <!-- Parent tag where we add item as child -->
+    <ol id="parent">
+        <li>List Item 1</li>
+    </ol>
 
-            <!-- Submit the Form -->
-            <button type="button" onClick="addItem()">
-        Add
-    </button>
-        </form>
+    <!--Question No 2-->
+    <h3>What are Global Variables?</h3>
+    <p>Global variables are those variables that are available throughout the length of the code, that is, they have no scope. The var keyword is used to declare a local variable or object. If the var keyword is omitted, a global variable is declared.</p>
 
-        <!-- Parent tag where we add  
-        item as child -->
-        <ol id="parent">
-            <li>List Item 1</li>
-        </ol>
+    <h3>How Global Variables are Declared: Refer to line 1-11 in assets/js/script.js for the code snippet.</h3>
 
-        <script>
-            // Define the addItem() function 
-            // to be called through onclick 
-            function addItem() {
+    <h3>Problems associated with using Global Variables</h3>
+    <p> The problems that are faced by using global variables are the clash of variable names of local and global scope. Also, it is difficult to debug and test the code that relies on global variables.</p>
 
-                // Get type of element from form 
-                let type = document.
-                getElementById("type").value;
 
-                // Get the text/value for the tag 
-                // from the form 
-                let value = document.
-                getElementById("value").value;
+    <!--Question No 3-->
+    <h2> Different ways of Form Submission</h2>
+    <p>the following are different ways to submit a form using Javascript submit() function to create an object, which keeps form attribute to perform submit action. An attribute can be id, class, name or tag. <br> Refer to line 14-30 of assets/js/script.js
+        for code snippet</p>
 
-                // createElement() is used for 
-                // creating a new element 
-                type
-                    = document.createElement(type);
+    <!----html code for form submission-->
+    <form action="#" method="POST" name="form_name" id="form_id" class="form_class">
+        <!----the method by tag will use the tag name(form)-->
+    </form>
 
-                // Use value as textnode in this example 
-                type.appendChild(
-                    document.createTextNode(value));
 
-                // Append as child to the parent 
-                // tag i.e. ol 
-                document.getElementById(
-                    "parent").appendChild(type);
-            }
-        </script>
+    <!--Question No 4-->
+    <h3>The delete operator:</h3>
+    <p>The JavaScript delete operator removes a property from an object if no more references to the same property are held, it is eventually released automatically or It throws an exception if the property is not configurable.</p>
+    <h3>functions of the delete operator</h3>
+    <ol>
+        <li>After deleting the actual property, that property won’t be accessible and returns undefined</li>
+        <li>The invocation of the delete operator returns true when it removes a property and false otherwise. it’s only effective on an object’s properties, it has no effect on variable or function names.</li>
+        <li>The delete operator shouldn’t be used on predefined JavaScript object properties like window, Math, and Date objects. It can crash your application.</li>
+    </ol>
 
-    </body>
+
+    <!--button leading back to home page(index.html)-->
+    <a href="index.html" target="back to home">
+        <button type="button" class="btn">Back to Home</button>
+    </a>
+
+
+    <!--Js code for Question No 1-->
+    <script>
+        // Define the addItem() function 
+        // to be called through onclick 
+        function addItem() {
+
+            // Get type of element from form 
+            let type = document.
+            getElementById("type").value;
+
+            // Get the text/value for the tag 
+            // from the form 
+            let value = document.
+            getElementById("value").value;
+
+            // createElement() is used for 
+            // creating a new element 
+            type
+                = document.createElement(type);
+
+            // Use value as textnode in this example 
+            type.appendChild(
+                document.createTextNode(value));
+
+            // Append as child to the parent 
+            // tag i.e. ol 
+            document.getElementById(
+                "parent").appendChild(type);
+        }
+    </script>
+
+</body>
 
 </html>
